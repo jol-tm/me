@@ -4,8 +4,37 @@
     --c1: #0f0f0f;
     --c2: #d4ffde;
     --c3: #00fa60;
-    --c4: #004b3be1;
+    --c4: #004b3bde;
     --f1: "Fira Code", Arial;
+}
+
+@media screen and (min-width: 0) {
+    #title, #subtitle, #banner {
+        position: relative;
+        margin: 1rem;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    #title, #subtitle, #banner {
+        position: absolute;
+        margin: 0;
+    }
+    
+    #title {
+        top: 20%;
+        left: 10%;
+    }
+
+    #subtitle {
+        top: 30%;
+        left: 15%;
+    }
+
+    #banner {
+        bottom: 20%;
+    }
+    
 }
 
 * {
@@ -22,7 +51,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: var(--c1);
+    background: var(--c1) url(media/bckg.png) no-repeat fixed;
+    background-size: cover;
     color: var(--c2);
 }
 
@@ -31,6 +61,9 @@ section {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    filter: drop-shadow(0 0 1rem var(--c4));
 }
 
 nav {
@@ -49,8 +82,15 @@ nav {
     width: fit-content;
     padding: 1rem;
     background-color: var(--c4);
+    box-shadow: .2rem .2rem 0 var(--c3);
     border: 2px solid var(--c3);
     border-radius: 1rem;
+    transition: .1s;
+}
+
+nav:hover {
+    transform: translate(-.1rem, -.1rem);
+    box-shadow: .3rem .3rem 0 var(--c3);
 }
 
 a {
@@ -62,38 +102,18 @@ a:hover {
     text-shadow: 0 0 .5rem var(--c3);
 }
 
-#title {
-    position: absolute;
-    top: 20%;
-    left: 10%;
+.box {
+    text-align: start;
+    padding: 5rem;
+    h1 {
+        margin: 0 0 2rem 0;
+    }
 }
 
-#subtitle {
-    position: absolute;
-    top: 30%;
-    left: 15%;
-}
-
-section {
-    height: 100vh;
-    width: 100vw;
-    filter: drop-shadow(0 0 1rem var(--c4));
-}
-
-#first {
-    background: url(media/bckg.png) no-repeat fixed;
-    background-size: cover;
-}
-
-#about-me {
-    background: linear-gradient(-135deg, var(--c4), var(--c1));
-}
-
-#projects {
-    background: url(media/bckg.png) no-repeat fixed;
-    background-size: cover;
-}
-
-#contact {
-    background: linear-gradient(135deg, var(--c4), var(--c1));
+#banner {
+    min-width: 30rem;
+    width: 35vw;
+    box-shadow: .2rem .2rem 0 var(--c3);
+    border: 2px solid var(--c3);
+    border-radius: 1rem;
 }
